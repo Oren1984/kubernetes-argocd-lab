@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "demo-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "demo-chart.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "demo-chart.name" . }}
+    spec:
+      containers:
+        - name: web
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.containerPort }}
+            initialDelaySeconds: 10
+            periodSeconds: 10

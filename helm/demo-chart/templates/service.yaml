@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "demo-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: {{ include "demo-chart.name" . }}
+  ports:
+    - name: http
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.containerPort }}

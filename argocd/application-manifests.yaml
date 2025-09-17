@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: manifests-app
+  namespace: argocd
+spec:
+  project: personal-lab
+  source:
+    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/kubernetes-argocd-lab.git
+    targetRevision: main
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8s-minimal
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-app
+  namespace: argocd
+spec:
+  project: personal-lab
+  source:
+    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/kubernetes-argocd-lab.git
+    targetRevision: main
+    path: helm/demo-chart
+    helm:
+      valueFiles: []
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: k8s-minimal
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

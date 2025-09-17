@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: k8s-minimal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: web
+          image: <YOUR_DOCKERHUB_USERNAME>/k8s-argocd-lab:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10

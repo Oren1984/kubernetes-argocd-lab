@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: personal-lab
+  namespace: argocd
+spec:
+  description: Personal ArgoCD lab project
+  sourceRepos:
+    - '*'
+  destinations:
+    - namespace: k8s-minimal
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
