@@ -12,14 +12,14 @@ Minimal GitOps lab with **ArgoCD**.
 
 ---
 
-## 0) Prerequisites
+##  Prerequisites
 - Docker, kubectl, Helm v3
 - A running cluster (minikube / k3s / kind / EKS)
 - ArgoCD installed in the cluster (see below)
 
 ---
 
-## 1) Build & Push the image
+##  Build & Push the image
 ```bash
 cd app
 docker build -t <YOUR_DOCKERHUB_USERNAME>/k8s-argocd-lab:1.0.0 .
