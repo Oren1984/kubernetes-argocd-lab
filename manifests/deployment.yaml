@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: <YOUR_DOCKERHUB_USERNAME>/k8s-argocd-lab:1.0.0
+          image: oren1984/k8s-argocd-lab:1.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

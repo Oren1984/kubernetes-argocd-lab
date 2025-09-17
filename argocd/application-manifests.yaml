@@ -6,7 +6,7 @@ metadata:
 spec:
   project: personal-lab
   source:
-    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/kubernetes-argocd-lab.git
+    repoURL: https://github.com/oren1984/kubernetes-argocd-lab.git
     targetRevision: main
     path: manifests
   destination:
@@ -25,7 +25,7 @@ metadata:
 spec:
   project: personal-lab
   source:
-    repoURL: https://github.com/<YOUR_GITHUB_USERNAME>/kubernetes-argocd-lab.git
+    repoURL: https://github.com/oren1984/kubernetes-argocd-lab.git
     targetRevision: main
     path: helm/demo-chart
     helm:

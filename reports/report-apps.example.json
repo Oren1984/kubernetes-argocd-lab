@@ -1,0 +1,341 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "argoproj.io/v1alpha1",
+            "kind": "Application",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"name\":\"helm-app\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"k8s-minimal\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"personal-lab\",\"source\":{\"helm\":{\"valueFiles\":[]},\"path\":\"helm/demo-chart\",\"repoURL\":\"https://github.com/oren1984/kubernetes-argocd-lab.git\",\"targetRevision\":\"main\"},\"syncPolicy\":{\"automated\":{\"prune\":true,\"selfHeal\":true}}}}\n"
+                },
+                "creationTimestamp": "2025-09-17T15:04:40Z",
+                "generation": 24,
+                "name": "helm-app",
+                "namespace": "argocd",
+                "resourceVersion": "44304",
+                "uid": "af7f627a-0817-4655-ab69-149d21a26133"
+            },
+            "spec": {
+                "destination": {
+                    "namespace": "k8s-minimal",
+                    "server": "https://kubernetes.default.svc"
+                },
+                "project": "personal-lab",
+                "source": {
+                    "path": "helm/demo-chart",
+                    "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                    "targetRevision": "main"
+                },
+                "syncPolicy": {
+                    "automated": {
+                        "prune": true,
+                        "selfHeal": true
+                    }
+                }
+            },
+            "status": {
+                "controllerNamespace": "argocd",
+                "health": {
+                    "lastTransitionTime": "2025-09-17T15:14:45Z",
+                    "status": "Degraded"
+                },
+                "history": [
+                    {
+                        "deployStartedAt": "2025-09-17T15:04:44Z",
+                        "deployedAt": "2025-09-17T15:04:44Z",
+                        "id": 0,
+                        "initiatedBy": {
+                            "automated": true
+                        },
+                        "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                        "source": {
+                            "path": "helm/demo-chart",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    },
+                    {
+                        "deployStartedAt": "2025-09-17T15:14:15Z",
+                        "deployedAt": "2025-09-17T15:14:17Z",
+                        "id": 1,
+                        "initiatedBy": {
+                            "username": "admin"
+                        },
+                        "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                        "source": {
+                            "path": "helm/demo-chart",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    }
+                ],
+                "operationState": {
+                    "finishedAt": "2025-09-17T15:14:17Z",
+                    "message": "successfully synced (all tasks run)",
+                    "operation": {
+                        "initiatedBy": {
+                            "username": "admin"
+                        },
+                        "retry": {},
+                        "sync": {
+                            "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                            "syncStrategy": {
+                                "hook": {}
+                            }
+                        }
+                    },
+                    "phase": "Succeeded",
+                    "startedAt": "2025-09-17T15:14:15Z",
+                    "syncResult": {
+                        "resources": [
+                            {
+                                "group": "",
+                                "hookPhase": "Running",
+                                "kind": "Service",
+                                "message": "service/demo-app unchanged",
+                                "name": "demo-app",
+                                "namespace": "k8s-minimal",
+                                "status": "Synced",
+                                "syncPhase": "Sync",
+                                "version": "v1"
+                            },
+                            {
+                                "group": "apps",
+                                "hookPhase": "Running",
+                                "images": [
+                                    "\u003cYOUR_DOCKERHUB_USERNAME\u003e/k8s-argocd-lab:1.0.0"
+                                ],
+                                "kind": "Deployment",
+                                "message": "deployment.apps/demo-app unchanged",
+                                "name": "demo-app",
+                                "namespace": "k8s-minimal",
+                                "status": "Synced",
+                                "syncPhase": "Sync",
+                                "version": "v1"
+                            }
+                        ],
+                        "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                        "source": {
+                            "path": "helm/demo-chart",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    }
+                },
+                "reconciledAt": "2025-09-17T15:15:16Z",
+                "resourceHealthSource": "appTree",
+                "resources": [
+                    {
+                        "kind": "Service",
+                        "name": "demo-app",
+                        "namespace": "k8s-minimal",
+                        "status": "Synced",
+                        "version": "v1"
+                    },
+                    {
+                        "group": "apps",
+                        "kind": "Deployment",
+                        "name": "demo-app",
+                        "namespace": "k8s-minimal",
+                        "status": "Synced",
+                        "version": "v1"
+                    }
+                ],
+                "sourceHydrator": {},
+                "sourceType": "Helm",
+                "summary": {
+                    "images": [
+                        "\u003cYOUR_DOCKERHUB_USERNAME\u003e/k8s-argocd-lab:1.0.0"
+                    ]
+                },
+                "sync": {
+                    "comparedTo": {
+                        "destination": {
+                            "namespace": "k8s-minimal",
+                            "server": "https://kubernetes.default.svc"
+                        },
+                        "source": {
+                            "path": "helm/demo-chart",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    },
+                    "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                    "status": "Synced"
+                }
+            }
+        },
+        {
+            "apiVersion": "argoproj.io/v1alpha1",
+            "kind": "Application",
+            "metadata": {
+                "annotations": {
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"argoproj.io/v1alpha1\",\"kind\":\"Application\",\"metadata\":{\"annotations\":{},\"name\":\"manifests-app\",\"namespace\":\"argocd\"},\"spec\":{\"destination\":{\"namespace\":\"k8s-minimal\",\"server\":\"https://kubernetes.default.svc\"},\"project\":\"personal-lab\",\"source\":{\"path\":\"manifests\",\"repoURL\":\"https://github.com/oren1984/kubernetes-argocd-lab.git\",\"targetRevision\":\"main\"},\"syncPolicy\":{\"automated\":{\"prune\":true,\"selfHeal\":true}}}}\n"
+                },
+                "creationTimestamp": "2025-09-17T15:04:40Z",
+                "generation": 14,
+                "name": "manifests-app",
+                "namespace": "argocd",
+                "resourceVersion": "44403",
+                "uid": "6bd6f459-2e52-42fb-a767-4864dce16cfa"
+            },
+            "spec": {
+                "destination": {
+                    "namespace": "k8s-minimal",
+                    "server": "https://kubernetes.default.svc"
+                },
+                "project": "personal-lab",
+                "source": {
+                    "path": "manifests",
+                    "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                    "targetRevision": "main"
+                },
+                "syncPolicy": {
+                    "automated": {
+                        "prune": true,
+                        "selfHeal": true
+                    }
+                }
+            },
+            "status": {
+                "controllerNamespace": "argocd",
+                "health": {
+                    "lastTransitionTime": "2025-09-17T15:14:45Z",
+                    "status": "Degraded"
+                },
+                "history": [
+                    {
+                        "deployStartedAt": "2025-09-17T15:04:43Z",
+                        "deployedAt": "2025-09-17T15:04:44Z",
+                        "id": 0,
+                        "initiatedBy": {
+                            "automated": true
+                        },
+                        "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                        "source": {
+                            "path": "manifests",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    }
+                ],
+                "operationState": {
+                    "finishedAt": "2025-09-17T15:04:44Z",
+                    "message": "successfully synced (all tasks run)",
+                    "operation": {
+                        "initiatedBy": {
+                            "automated": true
+                        },
+                        "retry": {
+                            "limit": 5
+                        },
+                        "sync": {
+                            "prune": true,
+                            "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8"
+                        }
+                    },
+                    "phase": "Succeeded",
+                    "startedAt": "2025-09-17T15:04:43Z",
+                    "syncResult": {
+                        "resources": [
+                            {
+                                "group": "",
+                                "hookPhase": "Running",
+                                "kind": "Namespace",
+                                "message": "namespace/k8s-minimal configured",
+                                "name": "k8s-minimal",
+                                "namespace": "k8s-minimal",
+                                "status": "Synced",
+                                "syncPhase": "Sync",
+                                "version": "v1"
+                            },
+                            {
+                                "group": "",
+                                "hookPhase": "Running",
+                                "kind": "Service",
+                                "message": "service/web configured",
+                                "name": "web",
+                                "namespace": "k8s-minimal",
+                                "status": "Synced",
+                                "syncPhase": "Sync",
+                                "version": "v1"
+                            },
+                            {
+                                "group": "apps",
+                                "hookPhase": "Running",
+                                "images": [
+                                    "\u003cYOUR_DOCKERHUB_USERNAME\u003e/k8s-argocd-lab:1.0.0"
+                                ],
+                                "kind": "Deployment",
+                                "message": "deployment.apps/web configured",
+                                "name": "web",
+                                "namespace": "k8s-minimal",
+                                "status": "Synced",
+                                "syncPhase": "Sync",
+                                "version": "v1"
+                            }
+                        ],
+                        "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                        "source": {
+                            "path": "manifests",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    }
+                },
+                "reconciledAt": "2025-09-17T15:18:54Z",
+                "resourceHealthSource": "appTree",
+                "resources": [
+                    {
+                        "kind": "Namespace",
+                        "name": "k8s-minimal",
+                        "status": "Synced",
+                        "version": "v1"
+                    },
+                    {
+                        "kind": "Service",
+                        "name": "web",
+                        "namespace": "k8s-minimal",
+                        "status": "Synced",
+                        "version": "v1"
+                    },
+                    {
+                        "group": "apps",
+                        "kind": "Deployment",
+                        "name": "web",
+                        "namespace": "k8s-minimal",
+                        "status": "Synced",
+                        "version": "v1"
+                    }
+                ],
+                "sourceHydrator": {},
+                "sourceType": "Directory",
+                "summary": {
+                    "images": [
+                        "\u003cYOUR_DOCKERHUB_USERNAME\u003e/k8s-argocd-lab:1.0.0",
+                        "oren1984/k8s-minimal:1.0.0"
+                    ]
+                },
+                "sync": {
+                    "comparedTo": {
+                        "destination": {
+                            "namespace": "k8s-minimal",
+                            "server": "https://kubernetes.default.svc"
+                        },
+                        "source": {
+                            "path": "manifests",
+                            "repoURL": "https://github.com/oren1984/kubernetes-argocd-lab.git",
+                            "targetRevision": "main"
+                        }
+                    },
+                    "revision": "d2d67674c237d3b02271b525fd6fb936300e98c8",
+                    "status": "Synced"
+                }
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}
