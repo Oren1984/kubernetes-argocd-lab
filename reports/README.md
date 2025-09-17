@@ -1,3 +1,27 @@
-This folder holds generated reports.
-Real JSON reports are git-ignored (see .gitignore).
-An example file (report-*.example.json) is tracked to show the expected format.
+This folder is for generated ArgoCD reports.
+Real JSON reports are ignored by Git (see root .gitignore).
+
+Example output shape (for reference only):
+```json
+{
+  "apps": [
+    {
+      "name": "manifests-app",
+      "project": "personal-lab",
+      "namespace": "k8s-minimal",
+      "sync": "Synced",
+      "health": "Healthy",
+      "revision": "main@abcdef1"
+    },
+    {
+      "name": "helm-app",
+      "project": "personal-lab",
+      "namespace": "k8s-minimal",
+      "sync": "Synced",
+      "health": "Healthy",
+      "revision": "main@abcdef2"
+    }
+  ],
+  "generated_at": "YYYY-MM-DDTHH:MM:SSZ"
+}
+
