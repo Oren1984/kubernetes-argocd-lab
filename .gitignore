@@ -1,3 +1,2 @@
 report*.json
 reports/*.json
-!reports/*.example.json
