@@ -1,3 +1,6 @@
+# Simple Flask application for ArgoCD lab
+# Returns a JSON message on the root endpoint
+
 from flask import Flask
 import os
 
