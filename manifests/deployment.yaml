@@ -1,3 +1,6 @@
+# Kubernetes Deployment manifest for demo Flask app
+# Part of ArgoCD personal lab setup
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
