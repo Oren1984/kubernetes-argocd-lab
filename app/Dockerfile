@@ -1,3 +1,6 @@
+# Dockerfile to build a minimal Python application container
+# Uses Python 3.12-slim, installs dependencies, and runs app.py
+
 FROM python:3.12-slim
 WORKDIR /app
 COPY requirements.txt .
