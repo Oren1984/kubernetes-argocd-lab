@@ -1,3 +1,6 @@
+# Helm Chart definition for ArgoCD demo application
+# Contains metadata like name, version, and description
+
 apiVersion: v2
 name: demo-chart
 description: Demo Helm chart for ArgoCD lab
