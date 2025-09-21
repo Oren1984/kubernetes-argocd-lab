@@ -1,1 +1,4 @@
+# Python dependencies for ArgoCD lab Flask app
+# Currently only requires Flask 3.0.3
+
 flask==3.0.3
