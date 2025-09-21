@@ -1,3 +1,6 @@
+# ArgoCD AppProject definition for personal lab
+# Allows deploying apps to k8s-minimal namespace with broad permissions
+
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
