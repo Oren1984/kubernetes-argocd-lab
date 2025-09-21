@@ -1,3 +1,6 @@
+# ArgoCD Applications for personal lab
+# Deploys one app from raw Kubernetes manifests and another from a Helm chart
+
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
