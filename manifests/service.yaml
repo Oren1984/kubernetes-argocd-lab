@@ -1,3 +1,6 @@
+# Kubernetes Service manifest to expose demo Flask app
+# Part of ArgoCD personal lab setup
+
 apiVersion: v1
 kind: Service
 metadata:
