@@ -1,3 +1,6 @@
+# Default values for ArgoCD demo Helm chart
+# Can be overridden during helm install/upgrade
+
 namespace: k8s-minimal
 replicaCount: 2
 
